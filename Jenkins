@@ -13,7 +13,7 @@ ARM_TENANT_ID="e613f20a-3ed5-4507-ab36-6f4f52b370b0"
 stages{
     stage('git checkout'){
         steps{
-           git credentialsId: 'GirishShetty93', url: 'https://github.com/GirishShetty93/createVMaz.git'
+           git credentialsId: 'sindhushreyas', url: 'https://github.com/sindhushreyas/vmrepo1.git'
         }
     }
     stage("Azure Terraform Login") {
