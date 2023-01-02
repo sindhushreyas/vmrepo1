@@ -1,40 +1,42 @@
 pipeline{
-agent any
-tools {
-terraform 'Terraform'
-}
+    agent any
+    tools {
+        terraform  'Terraform'
+    }
 environment {
-ARM_CLIENT_ID="8daf0598-5f3b-4239-b060-532f84a7c9cd"
+    ARM_CLIENT_ID="8daf0598-5f3b-4239-b060-532f84a7c9cd"
 ARM_CLIENT_SECRET="JiW8Q~5OcYpjiB97NkW5KOxkelh2Oiea2uJSHam9"
 ARM_SUBSCRIPTION_ID="ed0201f6-97f8-4374-8fc2-7bc8b309552a"
 ARM_TENANT_ID="e613f20a-3ed5-4507-ab36-6f4f52b370b0"
+
 }
 stages{
-stage('git checkout'){
-steps {
-git credentialsId: 'win key', url: 'https://github.com/samreen0105/terraform.git'
-}
-}
-stage("Azure Terraform Login") {
-steps {
-sh "az login --service-principal --username $ARM_CLIENT_ID --password $ARM_CLIENT_SECRET --tenant $ARM_TENANT_ID"
-}
-}
-stage('Terraform init'){
-steps{
-sh 'terraform init'
-}
-}
-stage('Terraform plan'){
-steps {
-sh 'terraform plan'
- }
-}
- stage('Terraform apply'){
-steps{
-sh 'terraform apply -auto-approve'
-}
-}
-}
+    stage('git checkout'){
+        steps{
+           git credentialsId: 'GirishShetty93', url: 'https://github.com/GirishShetty93/createVMaz.git'
+        }
+    }
+    stage("Azure Terraform Login") {
+	steps {
+	   sh "az login --service-principal --username $ARM_CLIENT_ID --password $ARM_CLIENT_SECRET --tenant $ARM_TENANT_ID"
+	}
+    }
+    stage('Terraform init'){
+        steps{
+            sh 'terraform init'
+        }
+    }
+    stage('Terraform plan'){
+        steps{
+            sh 'terraform plan'
+        }
+    }
+    stage('Terraform apply'){
+        steps{
+            sh 'terraform apply -auto-approve'
+        }
+    }
+        
+    }
 }
 
