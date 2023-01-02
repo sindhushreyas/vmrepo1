@@ -10,6 +10,8 @@ subnet_name="ssp_subnet"
 
 subnet_space=["10.0.2.0/24"]
 
+nic_name="ssp_nic"
+
 ip_name="ssp_ip"
 
 pip_name="ssp_pip"
