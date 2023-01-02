@@ -2,7 +2,7 @@ rg_name="newrg"
 
 location="East us"
 
-vnet_name=" newrg-vnet"
+vnet_name=" newrgvnet"
 
 vnet_space=["10.0.0.0/16"]
 
